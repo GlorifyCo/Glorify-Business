@@ -1,12 +1,11 @@
 {
-  "MongoDs": {
-    "host": "",
-    "port": 0,
+  "mongoDs": {
+    "host": "localhost",
+    "port": 27017,
     "url": "",
-    "database": "",
-    "password": "",
-    "name": "MongoDs",
-    "user": "",
+    "database": "GlorifyBusinessDB",
+    "name": "mongoDs",
+    "maxRows": 2000,
     "connector": "mongodb"
   }
 }
