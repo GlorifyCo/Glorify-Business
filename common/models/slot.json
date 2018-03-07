@@ -1,0 +1,32 @@
+{
+  "name": "slot",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "from": {
+      "type": "string",
+      "required": true
+    },
+    "to": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "functionalRel": {
+      "type": "belongsTo",
+      "model": "functional",
+      "foreignKey": "functionalId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
