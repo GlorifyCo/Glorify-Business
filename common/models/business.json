@@ -1,0 +1,75 @@
+{
+  "name": "business",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "logo": {
+      "type": "string",
+      "required": false
+    },
+    "workPhone": {
+      "type": "string",
+      "required": true
+    },
+    "cellPhone": {
+      "type": "string",
+      "required": true
+    },
+    "serviceFor": {
+      "type": "array",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    },
+    "tags": {
+      "type": "array",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "categories": {
+      "type": "hasMany",
+      "model": "category",
+      "foreignKey": "businessId",
+      "through": "activity"
+    },
+    "businessInfo": {
+      "type": "embedsOne",
+      "model": "businessInfo",
+      "property": "businessInfoModel",
+      "options": {
+        "validate": true,
+        "forceId": true,
+        "persistent": true
+      }
+    },
+    "location": {
+      "type": "embedsOne",
+      "model": "location",
+      "property": "locationModel",
+      "options": {
+        "validate": true,
+        "forceId": true,
+        "persistent": true
+      }
+    },
+    "actives": {
+      "type": "hasMany",
+      "model": "active",
+      "foreignKey": "businessId"
+    },
+    "employees": {
+      "type": "hasMany",
+      "model": "employee",
+      "foreignKey": "businessId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
