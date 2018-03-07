@@ -1,0 +1,81 @@
+{
+  "name": "employee",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "image": {
+      "type": "string",
+      "required": false
+    },
+    "firstname": {
+      "type": "string",
+      "required": true
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    },
+    "serviceFor": {
+      "type": "array",
+      "required": true
+    },
+    "directPhone": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "confirmationRequired": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "services": {
+      "type": "hasMany",
+      "model": "service",
+      "foreignKey": "employeeId",
+      "through": "duty"
+    },
+    "personalInfo": {
+      "type": "embedsOne",
+      "model": "personalInfo",
+      "property": "personalInfoModel",
+      "options": {
+        "validate": true,
+        "forceId": true,
+        "persistent": true
+      }
+    },
+    "businessRel": {
+      "type": "belongsTo",
+      "model": "business",
+      "foreignKey": "businessId"
+    },
+    "functionals": {
+      "type": "hasMany",
+      "model": "functional",
+      "foreignKey": "employeeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
