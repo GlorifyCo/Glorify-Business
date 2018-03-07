@@ -1,0 +1,37 @@
+{
+  "name": "duty",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "price": {
+      "type": "number",
+      "required": true
+    },
+    "priceType": {
+      "type": "string",
+      "required": true
+    },
+    "period": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "employeeRel": {
+      "type": "belongsTo",
+      "model": "employee",
+      "foreignKey": "employeeId"
+    },
+    "serviceRel": {
+      "type": "belongsTo",
+      "model": "service",
+      "foreignKey": "serviceId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
